@@ -9,14 +9,9 @@ const knex = require('knex')({
 });
 
 module.exports = {
-    createCategory,
-    getAll
+    create
 }
 
-async function getAll(){
-    return knex.select('CategoryId', 'Name').from('Categories');
-}
-
-async function createCategory(category){
-    return knex('Categories').insert(category); 
+async function create(product){
+    return knex('Products').insert(product); 
 }
