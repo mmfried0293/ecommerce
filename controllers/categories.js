@@ -1,12 +1,5 @@
 
-const CONFIG = require('../config.json');
-const knex = require('knex')({
-    client: 'mssql',
-    config : {
-        server : CONFIG.DB_SERVER,
-        database : CONFIG.DB_DATABASE
-    }
-});
+const {knex} = require('./db');
 
 module.exports = {
     createCategory,

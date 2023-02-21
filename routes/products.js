@@ -9,9 +9,8 @@ Router.get('/create', async (req, res, next) => {
 
 Router.post('/create', async (req, res, next) => {
     try{
-        let res = await Controller.create(req.body);
-        console.log(res);
-        res.send(res);
+        let data = await Controller.create(req.body);
+        res.send(data);
     }catch(e){
         console.error(e);
         res.status(500).render('error', {error : e.toString()});
