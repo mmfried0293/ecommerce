@@ -1,4 +1,3 @@
-const parser = require('mssql-connection-string');
 const CONFIG = require('../config.json');
 const Knex = require('knex');
 
