@@ -1,17 +1,16 @@
 
-const CONFIG = require('../config.json');
-const knex = require('knex')({
-    client: 'mssql',
-    config : {
-        server : CONFIG.DB_SERVER,
-        database : CONFIG.DB_DATABASE
-    }
-});
+
+const {knex} = require('./db');
 
 module.exports = {
-    create
+    create,
+    getAll
 }
 
-async function create(product){
-    return knex('Products').insert(product); 
+async function getAll(){
+    return knex.select().from('Products');
+}
+
+async function create(data){
+    return knex('Products').insert(data); 
 }
