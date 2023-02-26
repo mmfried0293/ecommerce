@@ -7,6 +7,11 @@ Router.get('/create', async (req, res, next) => {
     res.render('product-form', {categories});
 });
 
+Router.get('/view', async (req, res, next) => {
+    let products = await Controller.getAll();
+    res.render('products-view', {products});
+});
+
 Router.post('/create', async (req, res, next) => {
     try{
         let data = await Controller.create(req.body);

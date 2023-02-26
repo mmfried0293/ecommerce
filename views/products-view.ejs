@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Products</title>
+	<link rel="stylesheet" href="/static/css/view.css">
+</head>
+
+<body>
+	<div class="grid">
+		<table class="table">
+			<thead>
+                <th>Id</th>
+				<th>Name</th>
+				<th>Price</th>
+                <th>Description</th>
+                <th>Image</th>
+			</thead>
+			<tbody>
+				<% for(let pro of products){ %>
+					<tr>
+                        <td><%= pro.ProductId %></td>
+						<td><%= pro.ProductName%></td>
+						<td><%= pro.Price %></td>
+                        <td><%= pro.Description %></td>
+                        <td>
+                            <img width="100px" height="auto" src="/static/assets/<%= pro.Image %>" />
+                        </td>
+					</tr>
+				<% } %>
+			</tbody>
+		</table>
+		<a href="/products/create" class="button">Create Product</a>
+	</div>
+</body>
+
+</html>
