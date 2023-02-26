@@ -27,17 +27,6 @@ CREATE TABLE Clients (
     Country VARCHAR(255) DEFAULT 'USA'
 );
 
-CREATE TABLE Orders (
-    OrderId BIGINT IDENTITY(1,1) PRIMARY KEY,
-    ClientId BIGINT REFERENCES Clients(ClientId),
-    SessionId BIGINT,
-    Status VARCHAR(255),
-    OrderDate DATETIME,
-    PaymentMethod VARCHAR(255),
-    CCNumber VARCHAR(255),
-    ExpDate VARCHAR(255),
-    CVV VARCHAR(255)
-);
 
 
 
@@ -48,9 +37,22 @@ CREATE TABLE Sessions (
     TimeDestroyed DATETIME
 );
 
+
+CREATE TABLE Orders (
+    OrderId BIGINT IDENTITY(1,1) PRIMARY KEY,
+    ClientId BIGINT REFERENCES Clients(ClientId),
+    SessionId BIGINT REFERENCES Sessions(SessionId),
+    Status VARCHAR(255),
+    OrderDate DATETIME,
+    PaymentMethod VARCHAR(255),
+    CCNumber VARCHAR(255),
+    ExpDate VARCHAR(255),
+    CVV VARCHAR(255)
+);
+
 CREATE TABLE OrderDetails (
     OrderDetailId BIGINT IDENTITY(1,1) PRIMARY KEY,
     OrderId BIGINT REFERENCES Orders(OrderId),
     ProductId BIGINT REFERENCES Products(ProductId),
     Quantity INT NOT Null
-	);
+);
