@@ -8,7 +8,9 @@ module.exports = {
 }
 
 async function getAll(){
-    return knex.select().from('Products');
+    return knex.from('Products')
+    .join('Categories', 'Categories.CategoryId', '=', 'Products.CategoryId')
+    .select('Products.*', {CatName : 'Categories.Name'});
 }
 
 async function create(data){

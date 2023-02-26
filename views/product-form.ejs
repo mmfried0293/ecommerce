@@ -7,17 +7,19 @@
     <title>Product Form</title>
 </head>
 <body>
-    <form method="post">
-        <input type="text" name="name"/>
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" name="ProductName"/>
 
         <select name="CategoryId">
             <option value="">Select Category</option>
             <% for(let cat of categories) { %>
-                <option value="<%= cat.CategoryId %>"><%= cat.name %></option>
+                <option value="<%= cat.CategoryId %>"><%= cat.Name %></option>
             <% } %>
         </select>
-
+        <input name="Price" type="number" step="0.01" />
+ 
         <input name="Image" type="file" />
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
