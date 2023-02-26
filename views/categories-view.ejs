@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="/static/css/view.css">
+</head>
+
+<body>
+	<div class="grid">
+		<table class="table">
+			<thead>
+                <th>ID</th>
+				<th>Name</th>
+				<th>Description</th>
+			</thead>
+			<tbody>
+				<% for(let cat of categories){ %>
+					<tr>
+                        <td><%= cat.CategoryId %></td>
+						<td><%= cat.Name%></td>
+						<td><%= cat.Description%></td>
+					</tr>
+				<% } %>
+			</tbody>
+		</table>
+		<a href="/categories/create" class="button">Create Category</a>
+	</div>
+</body>
+
+</html>

@@ -5,6 +5,12 @@ Router.get('/create', (req, res, next) => {
     res.render('cat-form');
 });
 
+
+Router.get('/view', async (req, res, next) => {
+    let categories = await Controller.getAll();
+    res.render('categories-view', {categories});
+})
+
 Router.post('/create', async (req, res, next) => {
     try{
         let data = await Controller.createCategory(req.body);
