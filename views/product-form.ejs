@@ -8,16 +8,18 @@
 </head>
 <body>
     <form method="post">
-        <input type="text" name="name" value="<%= Product.name %>"/>
+        <input type="text" name="ProductName" placeholder="Enter Product Name"/>
 
         <select name="CategoryId">
             <option value="">Select Category</option>
-            <% for(let cat of categories) { %>
-                <option value="<%= cat.CategoryId %>"><%= cat.name %></option>
+            <% for (let cat of categories) { %>
+                <option value="<%= cat.CategoryId %>"><%= cat.Name %></option>
             <% } %>
         </select>
 
         <input name="Image" type="file" />
+        <input placeholder="Price" name="Price" type="number" step="0.01" />
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>

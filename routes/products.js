@@ -3,8 +3,16 @@ const Controller = require('../controllers/products');
 const CategoriesController = require('../controllers/categories');
 
 Router.get('/create', async (req, res, next) => {
+    
     let categories = await CategoriesController.getAll();
     res.render('product-form', {categories});
+});
+
+
+Router.get('/view', async (req, res, next) => {
+    let products = await Controller.getAll();
+    //let categories = await CategoriesController.getAll();
+    res.render('product-view', {products});
 });
 
 Router.post('/create', async (req, res, next) => {

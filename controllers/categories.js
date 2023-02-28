@@ -7,7 +7,7 @@ module.exports = {
 }
 
 async function getAll(){
-    return knex.select('CategoryId', 'Name').from('Categories');
+    return knex.select('CategoryId', 'Name', 'Description').from('Categories');
 }
 
 async function createCategory(category){
