@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/view.css">
+    <script> async function add() {
+       await fetch ('./create')
+    } </script>
+    <title>Products</title>
 </head>
 <h1>Product Views</h1>
 <body>
@@ -12,27 +16,49 @@
         <thead>
             <th>Product Name</th>
             <th>Price</th>
+            <th>Category</th>
             <th>Product ID</th>
         </thead>
         
             <tbody>
-                <% for ( let p of products) { %>
+                <div>
+                    <%  
+                
+                for ( let p of products) { %>
                     <tr>
                     <td>
                         <%= p.ProductName  %>
                     </td>
                     <td>
-                        <%= p.Price %>
+                        <%= p.Price  %>
+                    </td>
+                    <td>
+                        <%= p.Name %>
                     </td>
                     <td>
                         <%= p.ProductId %>
                     </td>
+                    <td>
+                        <button>Edit</button>
+                    </td>
+                    <td>
+                        <button>Delete</button>
+                    </td>
                     
             </tr>
             <% } %>
+                </div>
+                <div>
+                    
+                    <form method="get" action="./create">
+                        <button id="addProduct">
+                            Add More Products
+                        </button>
+                    </form>
+                </div>
             </tbody>
-        
     
     </table>
 </body>
+
 </html>
